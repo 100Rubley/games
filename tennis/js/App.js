@@ -1,30 +1,36 @@
 import config from './config.js'
 
+// Some usefull Variables from config.js
+let ballX = config.ballX
+let ballY = config.ballY
+let ballSpeedX = config.ballSpeedX
+let ballSpeedY = config.ballSpeedY
+let playerPaddleHeight = config.playerPaddleHeight
+let playerPaddleThickness = config.playerPaddleThickness
+let playerPaddleY = config.playerPaddleY
+let computerPaddleHeight = config.computerPaddleHeight
+let computerPaddleThickness = config.computerPaddleThickness
+let computerPaddleY = config.computerPaddleY
+
+let playerScore = 0
+let computerScore = 0
+
+
 export default class App {
   constructor(container) {
     // Create Canvas with 2D context
     this.canvas = document.createElement('canvas')
     this.context = this.canvas.getContext('2d')
+
     // Add class Canvas for CSS styling
     this.canvas.setAttribute('class', 'canvas')
+
     // Set Width and Height of Canvas (insert this into Config file)
     this.canvas.setAttribute('width', '800px')
     this.canvas.setAttribute('height', '600px')
 
     // Put Canvas into wrapper
     container.appendChild(this.canvas)
-  }
-  // Initial function
-  init() {
-    this.drawNet()
-    this.drawObjects()
-
-
-
-    console.log(`height = ${this.canvas.height}`)
-    console.log(`width = ${this.canvas.width}`)
-    console.log(`this.canvas = ${this.canvas}`)
-    console.log(`this.canvas.fillStyle = ${this.context.fillStyle}`)
   }
 
   // Draw middle line
@@ -34,16 +40,82 @@ export default class App {
     }
   }
 
+  // Computer paddle moving pattern
+  computerMovement() {
+    let computerPaddleYCenter = computerPaddleY + (computerPaddleHeight / 2)
+
+    if (computerPaddleYCenter < (ballY - computerPaddleHeight / 7)) {
+      computerPaddleYCenter += 6
+    } else if (computerPaddleYCenter > (ballY + computerPaddleHeight / 7)) {
+      computerPaddleYCenter -= 6
+    }
+  }
+
+  ballReset() {
+    ballSpeedX = -ballSpeedX
+    ballX = this.canvas.width / 2
+    ballY = this.canvas.height / 2
+  }
+
   // Draw players paddle, Computer paddle and a Ball
   drawObjects() {
+    // Draw Canvas every frame 
+    this.drawRectangle(0, 0, this.canvas.clientWidth, this.canvas.clientHeight, 'black')
+
+    this.drawNet()
+
     // Players paddle (left one)
-    this.drawRectangle(0, config.playerPaddleY, config.playerPaddleThickness, config.playerPaddleHeight, 'white')
+    this.drawRectangle(0, playerPaddleY, playerPaddleThickness, playerPaddleHeight, 'white')
 
     // Computer paddle (left one)
-    this.drawRectangle(this.canvas.width - config.computerPaddleThickness, config.computerPaddleY, config.computerPaddleThickness, config.computerPaddleHeight, 'white')
-    
+    this.drawRectangle(this.canvas.width - computerPaddleThickness, computerPaddleY, computerPaddleThickness, computerPaddleHeight, 'white')
+
     // Ball
-    this.drawCircle(config.ballX, config.ballY, 10, 'white')
+    this.drawCircle(ballX, ballY, 10, 'white')
+  }
+
+  // Move all objects once
+  moveObjects() {
+
+    this.computerMovement()
+
+    // Change ball position in X and Y axis
+    ballX += ballSpeedX
+    ballY += ballSpeedY
+
+    if (ballY > this.canvas.height) {
+      ballSpeedY = -ballSpeedY
+    }
+    if (ballY < 0) {
+      ballSpeedY = -ballSpeedY
+    }
+
+    // Reset the Ball after hitting right edge
+    if (ballX > this.canvas.width) {
+      if (ballY > computerPaddleY && ballY < (computerPaddleY + computerPaddleHeight)) {
+        ballSpeedX = -ballSpeedX
+
+        // Add new angles after hitting the paddle
+        let deltaY = ballY - (computerPaddleY + computerPaddleHeight / 2)
+        ballSpeedY = deltaY * 0.35
+      } else {
+        playerScore++
+        this.ballReset()
+      }
+    }
+    // Reset the Ball after hitting left edge
+    if (ballX < 0) {
+      if (ballY > playerPaddleY && ballY < (playerPaddleHeight + playerPaddleHeiaght / 2)) {
+        ballSpeedX -= ballSpeedX
+
+        // Add new angles after hitting the paddle
+        let deltaY = ballY - (playerPaddleY + playerPaddleHeiaght / 2)
+        ballSpeedY = deltaY * 0.35
+      } else {
+        computerScore++
+        this.ballReset()
+      }
+    }
   }
 
   // Draw a rectangle or cercle with certain parametres
