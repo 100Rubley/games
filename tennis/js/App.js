@@ -6,15 +6,18 @@ let ballY = config.ballY
 let ballSpeedX = config.ballSpeedX
 let ballSpeedY = config.ballSpeedY
 let playerPaddleHeight = config.playerPaddleHeight
-let playerPaddleThickness = config.playerPaddleThickness
-let playerPaddleY = config.playerPaddleY
 let computerPaddleHeight = config.computerPaddleHeight
 let computerPaddleThickness = config.computerPaddleThickness
 let computerPaddleY = config.computerPaddleY
 
+export let playerPaddleThickness = config.playerPaddleThickness
+export let playerPaddleY = config.playerPaddleY
+
+let winningScore = config.winningScore
 let playerScore = 0
 let computerScore = 0
 
+let showingWinScreen = false
 
 export default class App {
   constructor(container) {
@@ -33,10 +36,26 @@ export default class App {
     container.appendChild(this.canvas)
   }
 
-  // Draw middle line
-  drawNet() {
-    for (let i = 0; i < this.canvas.height; i += 40) {
-      this.drawRectangle((this.canvas.width / 2) - 1, i, 2, 20, 'white')
+  showWinScreen() {
+    console.log('You win!')
+  }
+
+  // Move players paddle
+  playerMove(e) {
+    let mousePos = this.calculateMousePosition(e)
+    playerPaddleY = mousePos.y - (playerPaddleHeight / 2)
+  }
+
+  // Calculate players paddle position
+  calculateMousePosition(e) {
+    let rect = this.canvas.getBoundingClientRect()
+    let root = document.documentElement
+    let mouseX = e.clientX - rect.left - root.scrollLeft
+    let mouseY = e.clientY - rect.top - root.scrollTop
+
+    return {
+      x: mouseX,
+      y: mouseY
     }
   }
 
@@ -45,37 +64,26 @@ export default class App {
     let computerPaddleYCenter = computerPaddleY + (computerPaddleHeight / 2)
 
     if (computerPaddleYCenter < (ballY - computerPaddleHeight / 7)) {
-      computerPaddleYCenter += 6
+      computerPaddleY += 6
     } else if (computerPaddleYCenter > (ballY + computerPaddleHeight / 7)) {
-      computerPaddleYCenter -= 6
+      computerPaddleY -= 6
     }
   }
 
   ballReset() {
+    // Check for win
+    if (playerScore >= winningScore || computerScore >= winningScore) {
+      showingWinScreen = true
+    }
+
     ballSpeedX = -ballSpeedX
     ballX = this.canvas.width / 2
     ballY = this.canvas.height / 2
   }
 
-  // Draw players paddle, Computer paddle and a Ball
-  drawObjects() {
-    // Draw Canvas every frame 
-    this.drawRectangle(0, 0, this.canvas.clientWidth, this.canvas.clientHeight, 'black')
-
-    this.drawNet()
-
-    // Players paddle (left one)
-    this.drawRectangle(0, playerPaddleY, playerPaddleThickness, playerPaddleHeight, 'white')
-
-    // Computer paddle (left one)
-    this.drawRectangle(this.canvas.width - computerPaddleThickness, computerPaddleY, computerPaddleThickness, computerPaddleHeight, 'white')
-
-    // Ball
-    this.drawCircle(ballX, ballY, 10, 'white')
-  }
-
   // Move all objects once
   moveObjects() {
+    if (showingWinScreen) return
 
     this.computerMovement()
 
@@ -105,16 +113,45 @@ export default class App {
     }
     // Reset the Ball after hitting left edge
     if (ballX < 0) {
-      if (ballY > playerPaddleY && ballY < (playerPaddleHeight + playerPaddleHeiaght / 2)) {
+      if (ballY > playerPaddleY && ballY < (playerPaddleHeight + playerPaddleHeight / 2)) {
         ballSpeedX -= ballSpeedX
 
         // Add new angles after hitting the paddle
-        let deltaY = ballY - (playerPaddleY + playerPaddleHeiaght / 2)
+        let deltaY = ballY - (playerPaddleY + playerPaddleHeight / 2)
         ballSpeedY = deltaY * 0.35
       } else {
         computerScore++
         this.ballReset()
       }
+    }
+  }
+
+  // Draw players paddle, Computer paddle and a Ball
+  drawObjects() {
+    // Draw Canvas every frame 
+    this.drawRectangle(0, 0, this.canvas.clientWidth, this.canvas.clientHeight, 'black')
+
+    // Show the End-Of-The-Game-Window
+    if (showingWinScreen) {
+      this.showWinScreen()
+    }
+
+    this.drawNet()
+
+    // Players paddle (left one)
+    this.drawRectangle(0, playerPaddleY, playerPaddleThickness, playerPaddleHeight, 'white')
+
+    // Computer paddle (left one)
+    this.drawRectangle(this.canvas.width - computerPaddleThickness, computerPaddleY, computerPaddleThickness, computerPaddleHeight, 'white')
+
+    // Ball
+    this.drawCircle(ballX, ballY, 10, 'white')
+  }
+
+  // Draw middle line
+  drawNet() {
+    for (let i = 0; i < this.canvas.height; i += 40) {
+      this.drawRectangle((this.canvas.width / 2) - 1, i, 2, 20, 'white')
     }
   }
 

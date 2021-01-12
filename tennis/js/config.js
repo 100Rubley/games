@@ -12,4 +12,6 @@ export default {
   computerPaddleHeight: 100,
   computerPaddleThickness: 10,
   computerPaddleY: 250,
+  // Max goals
+  winningScore: 3
 }
