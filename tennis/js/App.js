@@ -112,9 +112,9 @@ export default class App {
       }
     }
     // Reset the Ball after hitting left edge
-    if (ballX < 0) {
-      if (ballY > playerPaddleY && ballY < (playerPaddleHeight + playerPaddleHeight / 2)) {
-        ballSpeedX -= ballSpeedX
+    if (ballX < 1) {
+      if (ballY > playerPaddleY && ballY < (playerPaddleY + playerPaddleHeight)) {
+        ballSpeedX = -ballSpeedX
 
         // Add new angles after hitting the paddle
         let deltaY = ballY - (playerPaddleY + playerPaddleHeight / 2)
