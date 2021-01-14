@@ -24,7 +24,16 @@ const winScreen = document.querySelector('.win-screen')
 const closeWinScreenButton = document.querySelector('[data-close-button]')
 const overlay = document.querySelector('.overlay')
 
-console.log(score.textContent.remove)
+closeWinScreenButton.addEventListener('click', closeWinScreen)
+overlay.addEventListener('click', closeWinScreen)
+
+function closeWinScreen() {
+  winScreen.classList.remove('active')
+  overlay.classList.remove('active')
+  showingWinScreen = false
+  playerScore = 0
+  computerScore = 0
+}
 
 let showingWinScreen = false
 
