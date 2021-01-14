@@ -17,6 +17,15 @@ let winningScore = config.winningScore
 let playerScore = 0
 let computerScore = 0
 
+// DOM elements
+const title = document.querySelector('.win-screen_title')
+const score = document.querySelector('.score')
+const winScreen = document.querySelector('.win-screen')
+const closeWinScreenButton = document.querySelector('[data-close-button]')
+const overlay = document.querySelector('.overlay')
+
+console.log(score.textContent.remove)
+
 let showingWinScreen = false
 
 export default class App {
@@ -37,7 +46,18 @@ export default class App {
   }
 
   showWinScreen() {
-    console.log('You win!')
+    title.textContent.remove
+    score.textContent.remove
+
+    score.textContent = `${playerScore} - ${computerScore}`
+    if (playerScore >= winningScore) {
+      title.textContent = 'You win!'
+    } else if (computerScore >= winningScore) {
+      title.textContent = 'You loose!'
+    } else { return }
+
+    winScreen.classList.add('active')
+    overlay.classList.add('active')
   }
 
   // Move players paddle
