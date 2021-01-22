@@ -1,0 +1,25 @@
+.wrapper {
+  grid-area: messeges;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(23, 41, 119);
+  color: wheat;
+}
+
+.messege {
+  padding-top: 10px;
+}
+.messege img{
+  display: inline;
+  max-width: 20px;
+  max-height: 20px;
+  padding-right: 20px;
+}
+
+.user {
+  display: inline;
+}
+
+.text {
+  padding: 5px 10px;
+}

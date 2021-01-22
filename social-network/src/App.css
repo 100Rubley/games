@@ -1,0 +1,14 @@
+.app-wrapper {
+  display: grid;
+
+  grid-template-areas: 
+  "header header header"
+  "news content messeges";
+
+  grid-template-rows: 60px auto;
+  grid-template-columns: 1.5fr 9fr 1.5fr;
+
+  width: 1280px;
+
+  margin: 0 auto;
+}

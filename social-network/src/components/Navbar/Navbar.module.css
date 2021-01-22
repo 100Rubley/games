@@ -1,0 +1,24 @@
+.wrapper {
+  grid-area: news;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(23, 41, 119);
+  align-items: center;
+  color: wheat;
+  border-bottom: 1px solid white;
+}
+
+.postHeader {
+  border-bottom: 1px solid white;
+  padding-top: 10px;
+}
+
+.postContent {
+  padding: 10px 5px;
+}
