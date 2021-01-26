@@ -1,0 +1,19 @@
+.wrapper {
+  margin-left: 5px;
+  max-height: 60px;
+  display: flex;
+}
+
+.wrapper img {
+  border-radius: 15px;
+  width: auto;
+  height: 50px;
+}
+
+.textWrapper {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}

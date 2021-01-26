@@ -1,11 +1,9 @@
 .wrapper {
   grid-area: header;
-  background-color: darkblue;
+  background-color: white;
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-between; 
   align-items: center;
+  border-radius: 17px;
 }
 
-.item {
-  color: wheat;
-}

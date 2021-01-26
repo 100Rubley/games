@@ -10,5 +10,10 @@
 
   width: 1280px;
 
-  margin: 0 auto;
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
+body {
+  background-color: rgb(238, 234, 234);
 }
