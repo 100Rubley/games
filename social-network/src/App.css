@@ -17,3 +17,9 @@
 body {
   background-color: rgb(238, 234, 234);
 }
+
+.app-wrapper-content {
+  grid-area: content;
+  display: flex;
+  background-color: #fff;
+}

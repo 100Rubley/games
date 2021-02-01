@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <div className = {s.wrapper}>
       <Profile />
-      <Icons />
-      <Icons />
-      <Icons />
-      <Icons />
-      <Icons />
+      <Icons link = 'dialogs'/>
+      <Icons link = 'news'/>
+      <Icons link = 'music'/>
+      <Icons link = 'videos'/>
+      <Icons link = 'games'/>
     </div>
   )
 }
