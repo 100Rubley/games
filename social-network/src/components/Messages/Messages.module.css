@@ -1,5 +1,5 @@
 .wrapper {
-  grid-area: messeges;
+  grid-area: messages;
   display: flex;
   flex-direction: column;
   background-color: rgb(23, 41, 119);

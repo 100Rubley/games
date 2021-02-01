@@ -3,7 +3,7 @@
 
   grid-template-areas: 
   "header header header"
-  "news content messeges";
+  "news content messages";
 
   grid-template-rows: 60px auto;
   grid-template-columns: 1.5fr 9fr 1.5fr;
@@ -11,7 +11,7 @@
   width: 1280px;
 
   margin: 0px auto;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 body {

@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Messeges from './components/Messeges/Messeges';
+import Messeges from './components/Messages/Messages';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 

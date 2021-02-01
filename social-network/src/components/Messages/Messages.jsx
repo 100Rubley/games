@@ -1,4 +1,4 @@
-import s from './Messeges.module.css'
+import s from './Messages.module.css'
 
 const Messeges = () => {
   return (
