@@ -17,3 +17,13 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.activeLink {
+  text-decoration: none;
+  color: rgb(43, 3, 3) ;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

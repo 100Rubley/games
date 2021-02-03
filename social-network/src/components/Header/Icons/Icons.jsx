@@ -1,11 +1,12 @@
+import { NavLink } from 'react-router-dom'
 import s from './Icons.module.css'
 
 const Icons = (props) => {
   return (
     <div className={s.wrapper}>
-      <a href={props.link}>
+      <NavLink to={props.link} activeClassName = {s.activeLink}>
         <img src="#" alt="Icon" />
-      </a>
+      </NavLink>
     </div>
   )
 }

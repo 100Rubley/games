@@ -1,3 +1,13 @@
 .wrapper {
   padding-right: 10px;
 }
+
+.activeLink {
+  text-decoration: none;
+  color: rgb(43, 3, 3) ;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
