@@ -1,0 +1,15 @@
+let state = {
+  dialogsPage: {
+    dialogs: [{ id: 1, name: 'Vova' },
+    { id: 2, name: 'Goga' },
+    { id: 3, name: 'Lola' },
+    { id: 4, name: 'Sosa' },
+    { id: 5, name: 'UwU' },],
+    messages: [{ id: 1, message: 'Hi' },
+    { id: 2, message: "How're you doing?" },
+    { id: 3, message: "What's next?" },]
+  }
+}
+
+
+export default state
