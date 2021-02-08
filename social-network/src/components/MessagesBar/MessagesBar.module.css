@@ -2,8 +2,8 @@
   grid-area: messages;
   display: flex;
   flex-direction: column;
-  background-color: rgb(23, 41, 119);
-  color: wheat;
+  background-color: white;
+  border-radius: 17px;
 }
 
 .message {

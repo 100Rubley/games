@@ -8,6 +8,12 @@ let state = {
     messages: [{ id: 1, message: 'Hi' },
     { id: 2, message: "How're you doing?" },
     { id: 3, message: "What's next?" },]
+  },
+  profilePage: {
+    posts: [{ id: 1, text: 'Hello, watcha doin?' },
+    { id: 2, text: 'How are you?' },
+    { id: 3, text: 'Sehr god, bitte' }
+    ]
   }
 }
 

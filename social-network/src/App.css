@@ -22,4 +22,6 @@ body {
   grid-area: content;
   display: flex;
   background-color: #fff;
+  margin: 0 20px;
+  border-radius: 17px;
 }
