@@ -1,6 +1,6 @@
-import s from './Post.module.css'
+import s from './ImportantPost.module.css'
 
-const Post = (props) => {
+const ImportantPost = (props) => {
   return (
     <div className={s.postWrapper}>
         <div className={s.postHeader}>
@@ -13,4 +13,4 @@ const Post = (props) => {
   )
 }
 
-export default Post
+export default ImportantPost

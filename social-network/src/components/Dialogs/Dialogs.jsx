@@ -19,7 +19,7 @@ const Dialogs = (props) => {
 
       <div className={s.textAreaWrapper}>
         <textarea></textarea>
-        <button>Add post</button>
+        <button>Send</button>
       </div>
     </div>
   )

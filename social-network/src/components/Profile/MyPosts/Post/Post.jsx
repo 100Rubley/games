@@ -1,8 +1,8 @@
-import s from './MyPost.module.css'
+import s from './Post.module.css'
 
-const MyPost = (props) => {
+const Post = (props) => {
   return (
-    <div className={s.wrapper}>
+    <div className={s.post}>
       <div className={s.imgWrapper}>
         <img src="#" alt="profilePhoto" />
       </div>
@@ -11,4 +11,4 @@ const MyPost = (props) => {
   )
 }
 
-export default MyPost
+export default Post

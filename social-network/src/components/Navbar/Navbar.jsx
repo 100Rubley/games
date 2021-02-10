@@ -1,11 +1,11 @@
 import s from './Navbar.module.css'
-import Post from './Posts/Post'
+import ImportantPost from './ImportantPosts/ImportantPost'
 
 const Navbar = () => {
   return (
     <div className={s.wrapper}>
-      <Post headerTitle = 'Post1'/>
-      <Post headerTitle = 'Post2'/>
+      <ImportantPost headerTitle = 'Post1'/>
+      <ImportantPost headerTitle = 'Post2'/>
     </div>
   )
 }
