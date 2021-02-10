@@ -1,9 +1,18 @@
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
+import React from 'react'
 
 const MyPosts = (props) => {
 
   let postElements = props.posts.map(p => <Post text={p.text} />)
+
+  let newPostElement = React.createRef()
+
+  let addPost = () => {
+    let text = newPostElement.current.value
+    props.addPost(text)
+    newPostElement.current.value = ''
+  }
 
   return (
     <div className={s.wrapper}>
@@ -11,10 +20,10 @@ const MyPosts = (props) => {
 
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button>Add post</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
 
