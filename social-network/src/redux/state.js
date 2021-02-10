@@ -15,19 +15,25 @@ let state = {
     posts: [{ id: 1, text: 'Hello, watcha doin?' },
     { id: 2, text: 'How are you?' },
     { id: 3, text: 'Sehr god, bitte' }
-    ]
+    ],
+    newPostText: ''
   }
 }
 
 export let addPost = (message) => {
   let newPost = {
     id: 5,
-    text: message
+    text: state.profilePage.newPostText
   }
 
   state.profilePage.posts.push(newPost)
+  state.profilePage.newPostText = ''
   rerenderEntireTree(state)
 }
 
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText
+  rerenderEntireTree(state)
+}
 
 export default state
