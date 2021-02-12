@@ -1,45 +1,61 @@
-let rerenderEntireTree = () => {
-  console.log('State have changed')
-}
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_POST = 'ADD-POST'
 
-let state = {
-  dialogsPage: {
-    dialogs: [{ id: 1, name: 'Vova' },
-    { id: 2, name: 'Goga' },
-    { id: 3, name: 'Lola' },
-    { id: 4, name: 'Sosa' },
-    { id: 5, name: 'UwU' },],
-    messages: [{ id: 1, message: 'Hi' },
-    { id: 2, message: "How're you doing?" },
-    { id: 3, message: "What's next?" },]
+let store = {
+  _state: {
+    dialogsPage: {
+      dialogs: [{ id: 1, name: 'Vova' },
+      { id: 2, name: 'Goga' },
+      { id: 3, name: 'Lola' },
+      { id: 4, name: 'Sosa' },
+      { id: 5, name: 'UwU' },],
+      messages: [{ id: 1, message: 'Hi' },
+      { id: 2, message: "How're you doing?" },
+      { id: 3, message: "What's next?" },]
+    },
+    profilePage: {
+      posts: [{ id: 1, text: 'Hello, watcha doin?' },
+      { id: 2, text: 'How are you?' },
+      { id: 3, text: 'Sehr god, bitte' }
+      ],
+      newPostText: ''
+    }
   },
-  profilePage: {
-    posts: [{ id: 1, text: 'Hello, watcha doin?' },
-    { id: 2, text: 'How are you?' },
-    { id: 3, text: 'Sehr god, bitte' }
-    ],
-    newPostText: ''
-  }
+  _callSubscriber() {
+    console.log('State have changed')
+  },
+
+  getState() {
+    return this._state
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer
+  },
+
+  dispatch(action) {
+    switch (action.type) {
+      case 'ADD-POST':
+        let newPost = {
+          id: 5,
+          text: this._state.profilePage.newPostText
+        }
+
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber(this._state)
+        break
+
+        case 'UPDATE-NEW-POST-TEXT':
+          this._state.profilePage.newPostText = action.newText
+          this._callSubscriber(this._state)
+          break
+      default:
+        return
+    }
+  },
 }
 
-export const addPost = () => {
-  let newPost = {
-    id: 5,
-    text: state.profilePage.newPostText
-  }
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPostActionCreator = () => ({type: ADD_POST})
 
-  state.profilePage.posts.push(newPost)
-  state.profilePage.newPostText = ''
-  rerenderEntireTree(state)
-}
-
-export const updateNewPostText = (newText) => {
-  state.profilePage.newPostText = newText
-  rerenderEntireTree(state)
-}
-
-export const subscribe = (observer) => {
-  rerenderEntireTree = observer
-}
-
-export default state
+export default store
