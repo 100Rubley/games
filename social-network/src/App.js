@@ -15,12 +15,13 @@ function App(props) {
         <MessagesBar />
         <div className='app-wrapper-content'>
           <Route path='/profile'
-            render={() => <Profile 
-            state={props.state.profilePage}
-            dispatch={props.dispatch}/>} />
+            render={() => <Profile
+              state={props.state.profilePage}
+              dispatch={props.dispatch} />} />
           <Route path='/dialogs'
             render={() => <Dialogs
-              state={props.state.dialogsPage} />} />
+              state={props.state.dialogsPage}
+              dispatch={props.dispatch} />} />
         </div>
       </div>
     </BrowserRouter>
