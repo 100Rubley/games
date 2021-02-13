@@ -1,21 +1,19 @@
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
 import React from 'react'
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state'
+import { addPostCreator, updateNewPostTextCreator } from '../../../redux/profileReducer'
 
 const MyPosts = (props) => {
 
   let postElements = props.posts.map(p => <Post text={p.text} />)
 
-  let newPostElement = React.createRef()
-
   let addPost = () => {
-    props.dispatch(addPostActionCreator())
+    props.dispatch(addPostCreator())
   }
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value
-    props.dispatch(updateNewPostTextActionCreator(text))
+  let onPostChange = (e) => {
+    let text = e.target.value
+    props.dispatch(updateNewPostTextCreator(text))
   }
 
   return (
@@ -26,7 +24,6 @@ const MyPosts = (props) => {
         <div>
           <textarea
           onChange={onPostChange} 
-          ref={newPostElement} 
           value={props.newPostText}/>
         </div>
         <div>

@@ -1,7 +1,5 @@
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_POST = 'ADD-POST'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+import dialogsReducer from "./dialogsReducer"
+import profileReducer from "./profileReducer"
 
 let store = {
   _state: {
@@ -14,7 +12,7 @@ let store = {
       messages: [{ id: 1, message: 'Hi' },
       { id: 2, message: "How're you doing?" },
       { id: 3, message: "What's next?" },],
-      newMessageText: ''
+      newMessageBody: ''
     },
     profilePage: {
       posts: [{ id: 1, text: 'Hello, watcha doin?' },
@@ -36,48 +34,12 @@ let store = {
   },
 
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        let newPost = {
-          id: 5,
-          text: this._state.profilePage.newPostText
-        }
 
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state)
-        break
-
-      case ADD_MESSAGE:
-        let newMessage = {
-          id: 5,
-          message: this._state.dialogsPage.newMessageText
-        }
-
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubscriber(this._state)
-        break
-
-      case UPDATE_NEW_POST_TEXT:
-        this._state.profilePage.newPostText = action.newText
-        this._callSubscriber(this._state)
-        break
-
-      case UPDATE_NEW_MESSAGE_TEXT:
-        this._state.dialogsPage.newMessageText = action.newText
-        this._callSubscriber(this._state)
-        break
-
-      default:
-        return
-    }
+   this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+   this._state.profilePage = profileReducer(this._state.profilePage, action)
+    
+    this._callSubscriber(this._state)
   },
 }
-
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text })
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
 
 export default store
