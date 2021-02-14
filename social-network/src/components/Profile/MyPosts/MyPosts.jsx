@@ -1,19 +1,18 @@
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
 import React from 'react'
-import { addPostCreator, updateNewPostTextCreator } from '../../../redux/profileReducer'
 
 const MyPosts = (props) => {
 
   let postElements = props.posts.map(p => <Post text={p.text} />)
 
   let addPost = () => {
-    props.dispatch(addPostCreator())
+    props.addPost()
   }
 
   let onPostChange = (e) => {
     let text = e.target.value
-    props.dispatch(updateNewPostTextCreator(text))
+    props.onPostChange(text)
   }
 
   return (
