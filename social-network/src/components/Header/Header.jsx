@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className = {s.wrapper}>
       <Profile link = '/profile'/>
+      <Icons link = '/users'/>
       <Icons link = '/dialogs'/>
       <Icons link = '/news'/>
       <Icons link = '/music'/>
