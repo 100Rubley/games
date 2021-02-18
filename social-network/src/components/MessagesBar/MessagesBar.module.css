@@ -2,8 +2,15 @@
   grid-area: messages;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border-radius: 17px;
+  background-color: #202124;
+
+  position: fixed;
+  top: 64px;
+  right: 0;
+  height: calc(100vh - 75px);
+  width: 200px;
+ 
+  box-shadow: inset 0px 5px 10px -6px black;
 }
 
 .message {

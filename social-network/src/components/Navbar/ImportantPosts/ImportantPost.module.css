@@ -1,11 +1,9 @@
 .postWrapper {
   display: flex;
   flex-direction: column;
-  background-color: white;
   align-items: center;
   border: 1px solid rgb(238, 234, 234);
-  border-radius: 17px;
-  margin: 10px 5px ;
+  margin-top: 20px;
 }
 
 .postHeader {

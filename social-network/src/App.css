@@ -5,23 +5,22 @@
   "header header header"
   "news content messages";
 
-  grid-template-rows: 60px auto;
-  grid-template-columns: 1.5fr 9fr 1.5fr;
+  grid-template-rows: 64px auto;
+  grid-template-columns: 230px 1fr 230px;
 
-  width: 1280px;
+  width: 100%;
 
   margin: 0px auto;
-  margin-top: 20px;
+
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 body {
-  background-color: rgb(238, 234, 234);
+  background-color:  #1d1e20;
 }
 
 .app-wrapper-content {
   grid-area: content;
   display: flex;
-  background-color: #fff;
-  margin: 0 20px;
-  border-radius: 17px;
+  background-color: #202124;
 }

@@ -5,7 +5,7 @@
 }
 
 .wrapper img {
-  border-radius: 15px;
+  border-radius: 8px;
   width: auto;
   height: 50px;
 }
@@ -20,10 +20,14 @@
 
 .activeLink {
   text-decoration: none;
-  color: rgb(43, 3, 3) ;
+  color: #e8eaed ;
+}
+
+.userNickname {
+  color: #5f6368;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #5f6368;
 }
