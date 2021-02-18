@@ -10,7 +10,7 @@
   height: calc(100vh - 75px);
   width: 200px;
  
-  box-shadow: inset 0px 5px 10px -6px black;
+  box-shadow: inset 0px 5px 10px -6px black,  -5px 5px 10px -3px black;;
 }
 
 .message {

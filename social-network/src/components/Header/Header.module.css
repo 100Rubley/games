@@ -19,6 +19,7 @@
 }
 
 .iconWrapper {
+  padding-top: 8px;
   padding-right: 20px;
 }
 
@@ -27,9 +28,6 @@
   color: #e8eaed;
 }
 
-a {
-  text-decoration: none;
-  color: #5f6368;
-}
+
 
 

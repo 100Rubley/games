@@ -1,0 +1,22 @@
+.wrapper {
+  border-radius: 8px;
+  border: solid 2px #5f6368;
+  width: 180px;
+  height: auto;
+  margin: 15px 0;
+  box-shadow: 1px 1px 10px 3px black, -1px -1px 10px -1px black;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  color: #5f6368;
+  border-bottom: solid 1px #5f6368;
+  padding: 8px 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  color: #5f6368;
+  padding: 8px 22px;
+}

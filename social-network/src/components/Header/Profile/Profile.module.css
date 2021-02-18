@@ -7,7 +7,7 @@
 .wrapper img {
   border-radius: 8px;
   width: auto;
-  height: 50px;
+  max-height: 50px;
 }
 
 .textWrapper {
@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 18px;
 }
 
 .activeLink {
