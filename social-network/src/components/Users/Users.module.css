@@ -45,22 +45,23 @@
 
 .user{
   display: flex;
+  flex-direction: column;
   align-items:baseline;
 }
 
 .profileName{
   color: #e8eaed;
-  font-size: 2em;
+  font-size: 1.8em;
   margin-right: 15px;
 }
 
 .nickName{
   color: #5f6368;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .status {
   margin-bottom: 30px;
-  font-size: 1.5em;
-  color: #e8eaed;
+  font-size: 1.3em;
+  color: #5f6368;
 }
