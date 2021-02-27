@@ -1,4 +1,23 @@
-.wrapper {
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.pagesCounter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: #5f6368;
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.selectedPage{
+  color: #e8eaed;
+  font-size: 1.6rem;
+}
+
+.usersWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
