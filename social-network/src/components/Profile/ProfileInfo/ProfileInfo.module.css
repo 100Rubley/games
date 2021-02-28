@@ -2,3 +2,31 @@
   border-radius: 50%;
   border: 1px solid black;
 }
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5em;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+.name {
+  font-size: 2.5em;
+  color: #e8eaed;
+}
+
+.status {
+  font-size: 1.4em;
+  color: #5f6368;
+}
