@@ -8,7 +8,7 @@ const Profile = (props) => {
       <img src={profilePhoto} alt="Profile_picture" />
       <div className={s.textWrapper}>
         <NavLink to={props.link} activeClassName={s.activeLink}>
-          <div className={s.profileName}>Sam Crofts</div>
+          <div className={s.profileName}>{props.login}</div>
         </NavLink>
         <div className={s.userNickname}>@sam666</div>
       </div>

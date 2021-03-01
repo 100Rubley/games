@@ -11,7 +11,12 @@ const Header = (props) => {
   return (
     <div className={s.wrapper}>
       <div className={s.wrapperContent}>
-        <Profile link='/profile' />
+
+        <div className={s.loginBlock}>
+          {props.isAuth
+            ? <Profile link='/profile' login={props.login} />
+            : <NavLink to={'/login'}>Login</NavLink>}
+        </div>
 
         <NavLink to='/dialogs' activeClassName={s.activeLink}>
           <div className={s.iconWrapper}>
@@ -48,11 +53,6 @@ const Header = (props) => {
             <GiConsoleController size='1.8em' />
           </div>
         </NavLink>
-
-        <div className={s.loginBlock}>
-          {props.isAuth ? props.login
-            : <NavLink to={'/login'}>Login</NavLink>}
-        </div>
       </div>
     </div>
   )
