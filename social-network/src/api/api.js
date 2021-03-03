@@ -26,15 +26,14 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-  getUserProfile(userID) {
+  getProfile(userID) {
     return instance.get('profile/' + userID)
-      .then(responce => { return responce.data })
   },
 }
 
-export const headerAPI = {
-  authMe() {
+export const authAPI = {
+  me() {
     return instance.get('auth/me')
-      .then(responce => { return responce.data })
+      .then(response => { return response.data })
   },
 }
