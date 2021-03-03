@@ -6,6 +6,7 @@ import MessagesBar from './components/MessagesBar/MessagesBar';
 import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             render={() => <DialogsContainer />} />
           <Route path='/users'
             render={() => <UsersContainer />} />
+          <Route path='/login'
+            render={() => <LoginPage />} />
         </div>
       </div>
     </BrowserRouter>
