@@ -16,12 +16,12 @@ export const usersAPI = {
 
   follow(userID) {
     return instance.post(`follow/${userID}`)
-      .then(responce => { return responce.resultCode })
+      .then(responce => { return responce.data.resultCode })
   },
 
   unfollow(userID) {
     return instance.delete(`follow/${userID}`)
-      .then(responce => { return responce.resultCode })
+      .then(responce => { return responce.data.resultCode })
   },
 }
 

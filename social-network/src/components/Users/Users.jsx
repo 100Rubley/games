@@ -15,7 +15,7 @@ let Users = (props) => {
     <div className={s.wrapper}>
       <div className={s.pagesCounter}>
         {pages.map(p => {
-          return <div className={props.currentPage === p && s.selectedPage}
+          return <div className={props.currentPage === p ? s.selectedPage : undefined}
             onClick={(e) => { props.onPageChanged(p) }}>
             {p}
           </div>
