@@ -1,8 +1,8 @@
 import s from './Login.module.css'
-import { Field, reduxForm } from "redux-form"
+import { Field, reduxForm } from 'redux-form'
 
 const LoginForm = (props) => {
-  return <form>
+  return <form onSubmit={props.handleSubmit}>
     <div className={s.inputWrapper}>
       <Field placeholder={'Login'} name={'login'} component={'input'} />
     </div>
@@ -21,16 +21,16 @@ const LoginForm = (props) => {
   </form>
 }
 
-const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
+const LoginReduxForm = reduxForm({ form: "login" })(LoginForm)
 
 const Login = (props) => {
   const onSubmit = (formData) => {
     console.log(formData);
-}
+  }
 
   return <div className={s.wrapper}>
     <h1>Login</h1>
-    <LoginReduxForm />
+    <LoginReduxForm onSubmit={onSubmit} />
   </div>
 }
 
